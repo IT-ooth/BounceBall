@@ -1,4 +1,4 @@
-package com.itooth;
+package com.itooth.cls;
 
 
 public class Ball extends Object{

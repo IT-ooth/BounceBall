@@ -1,4 +1,4 @@
-package com.itooth;
+package com.itooth.cls;
 
 public abstract class Object {
     
