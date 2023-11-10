@@ -22,7 +22,8 @@ public class MapController extends Thread implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources){
         
-        sprites.add(new Ball(ball));
+
+        sprites.add(Ball.getInstance(ball));
         this.start();
     }
 

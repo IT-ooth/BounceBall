@@ -4,33 +4,45 @@ import javafx.scene.shape.Circle;
 
 public class Ball extends Object{
 
-    private double time = 0;
-    private double[] pos = new double[]{0, 0};
-    private Circle circle;
+    private static double time = 0;
+    private static Circle circle;
+    
+    private static final double acceleration = -10, initial_speed = 10;
+    private static Ball instance = new Ball();
 
-    private final double acceleration = -10, initial_speed = 10;
+    private Ball(){}
 
-    public Ball(Circle circle){
-        this.circle = circle;
+    public static Ball getInstance(Circle circle){
+        connectSprite(circle);
+        return instance;
+    }
+
+    public static Ball getInstance(){
+        return instance;
+    }
+
+    private static void connectSprite(Circle c){
+        circle = c;
     }
 
     @Override
     public void update(){
         
-        set_pos();
-        
-        this.circle.setCenterX(pos[0]);
-        this.circle.setCenterY(pos[1]);
-    }
-
-    private void set_pos(){
-        
         time += 0.1;
 
-        this.pos[1] = initial_speed * time + 0.5 * acceleration * time * time;
-
-        if (time >= 2){
-            time = 0;
-        }
+        setPos(calPos()[0], calPos()[1]);
+         
+        circle.setCenterX(getPos()[0]);
+        circle.setCenterY(getPos()[1]);
     }
+
+    public void crash(){
+        time = 0;
+    }
+
+    private double[] calPos(){
+        return new double[] {0, initial_speed * time + 0.5 * acceleration * time * time};
+    }
+
+
 }
