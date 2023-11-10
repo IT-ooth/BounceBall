@@ -1,5 +1,7 @@
 package com.itooth.cls;
 
+import com.itooth.controller.MapController;
+
 public class Sys {
     
     private static Sys instance = new Sys();
@@ -11,6 +13,6 @@ public class Sys {
     }
 
     public void crash(){
-        Ball.getInstance().crash();
+        MapController.crash();
     }
 }
