@@ -34,14 +34,16 @@ public class MapController extends Thread implements Initializable {
     }
 
     public void run(){
-        
+
         while (Sys.flag) {
             
             try {
-                Thread.sleep(10);
+                Thread.sleep(10L);
+                
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             // 전체를 틱마다 업데이트 하기
             for (Object obj : sprites){
                 obj.update();
@@ -50,7 +52,7 @@ public class MapController extends Thread implements Initializable {
 
         this.interrupt();
         try {
-            Thread.sleep(1);
+            Thread.sleep(1L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
