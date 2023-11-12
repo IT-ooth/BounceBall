@@ -14,6 +14,7 @@ import javafx.scene.shape.Rectangle;
 import com.itooth.cls.Ball;
 import com.itooth.cls.Normalblock;
 import com.itooth.cls.Object;
+import com.itooth.cls.Sys;
 
 public class MapController extends Thread implements Initializable {
 
@@ -34,7 +35,7 @@ public class MapController extends Thread implements Initializable {
 
     public void run(){
         
-        while (!Thread.currentThread().isInterrupted()) {
+        while (Sys.flag) {
             
             try {
                 Thread.sleep(10);
@@ -46,11 +47,21 @@ public class MapController extends Thread implements Initializable {
                 obj.update();
             } 
         }
+
+        this.interrupt();
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void crash(){
-        
-        Ball ball = (Ball) sprites.get(0);
-        ball.crash();
+    public static Ball getBall(){
+        return (Ball) sprites.get(0);
     }
+
+    public static void close(){
+        Sys.flag = false;
+    }
+    
 }

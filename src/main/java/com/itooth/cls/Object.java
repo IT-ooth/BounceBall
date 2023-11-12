@@ -11,7 +11,7 @@ public abstract class Object {
         center_pos[1] = y;
     }
 
-    protected double[] getPos(){
+    public double[] getPos(){
         return center_pos;
     }
 
