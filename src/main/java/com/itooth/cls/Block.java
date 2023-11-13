@@ -13,4 +13,5 @@ public abstract class Block extends Object{
         }
     }
     
+    protected abstract Bounds getBounds();
 }

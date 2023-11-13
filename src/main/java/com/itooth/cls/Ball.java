@@ -9,12 +9,13 @@ public class Ball extends Object{
     private static double time = 0;
     private static double moveStack = 0;
     private static Circle circle;
-    
+    private static double floor;
+
     private static final double acceleration = -10, initial_speed = 10;
 
     public Ball(Circle c){
         circle = c;
-
+        floor = circle.getCenterY();
         circle.setFocusTraversable(true);
         circle.setOnKeyPressed(e -> move(e));
     }
@@ -23,21 +24,19 @@ public class Ball extends Object{
     public void update(){
         
         configUpdate();
-        
-        setPos(calPos(moveStack), circle.getLayoutY() - calPos(time) * 10);
-        
-        circle.setCenterY(getPos()[1]);
+
+        circle.setCenterY(floor - calPos(time) * 10);
+
     }
 
     public void crash(){
         time = 0;
+        floor = circle.getCenterY();
     }
 
     private void configUpdate(){
         
         time += 0.01;
-        
-        if (time >= 2){time = 0;}
     
         if (moveStack <= 0) {moveStack = 0;}
         else {moveStack -= 0.01;}
