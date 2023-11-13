@@ -4,14 +4,13 @@ import javafx.geometry.Bounds;
 
 public abstract class Block extends Object{
 
-    protected boolean isCrash(Bounds bound){
-        if (Sys.getInstance().getBallbound().intersects(bound)){
+    //충돌 감지
+    protected boolean isCrashto(Bounds bound){
+        if (bound.intersects(Sys.getInstance().getBallbound())){
             return true;
         }
         else{
             return false;
         }
     }
-    
-    protected abstract Bounds getBounds();
 }

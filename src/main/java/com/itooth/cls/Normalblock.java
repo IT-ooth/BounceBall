@@ -1,6 +1,5 @@
 package com.itooth.cls;
 
-import javafx.geometry.Bounds;
 import javafx.scene.shape.Rectangle;
 
 public class Normalblock extends Block{
@@ -13,16 +12,8 @@ public class Normalblock extends Block{
     
     @Override
     public void update() {
-        // 충돌 시 코드
-        if (isCrash(getBounds())){
+        if (isCrashto(getBounds(rectangle))){
             Sys.getInstance().crash();
         }
     }
-
-    @Override
-    protected Bounds getBounds(){
-        return rectangle.getBoundsInParent();
-    }
-
-
 }
