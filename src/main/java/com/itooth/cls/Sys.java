@@ -2,6 +2,8 @@ package com.itooth.cls;
 
 import com.itooth.controller.MapController;
 
+import javafx.geometry.Bounds;
+
 public class Sys {
     
     private static Sys instance = new Sys();
@@ -17,14 +19,9 @@ public class Sys {
         getBall().crash();
     }
 
-    public double[] getBallpos(){
-        return getBall().getPos();
+    public Bounds getBallbound(){
+        return MapController.getBall().getBounds();
     }
-
-    public double getBallradius(){
-        return getBall().getRadius();
-    }
-
     private Ball getBall(){
         return MapController.getBall();
     }

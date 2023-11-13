@@ -2,6 +2,7 @@ package com.itooth.cls;
 
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
+import javafx.geometry.Bounds;
 
 public class Ball extends Object{
 
@@ -65,7 +66,8 @@ public class Ball extends Object{
         return initial_speed * time + 0.5 * acceleration * time * time;
     }
 
-    public double getRadius(){
-        return circle.getRadius();
+
+    public Bounds getBounds(){
+        return circle.getBoundsInParent();
     }
 }
