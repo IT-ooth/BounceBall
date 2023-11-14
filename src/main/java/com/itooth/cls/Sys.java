@@ -23,7 +23,7 @@ public class Sys{
 
     // 공 bounds값 가져오기
     public Bounds getBallbound(){
-        return getBall().getBounds(getBall().getShape());
+        return getBall().getBounds();
     }
     
     // 스레드 종료
