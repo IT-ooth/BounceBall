@@ -58,13 +58,15 @@ public abstract class Block extends Object{
         }
     }
 
-    protected abstract void topCrash();
+    protected void topCrash(){
+        Sys.getInstance().crash();
+    }
     
-    protected abstract void bottomCrash();
+    protected void bottomCrash(){}
     
-    protected abstract void leftCrash();
+    protected void leftCrash(){}
     
-    protected abstract void rightCrash();
+    protected void rightCrash(){}
 
-    protected abstract void diagonalCrash();
+    protected void diagonalCrash(){}
 }

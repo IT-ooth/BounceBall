@@ -17,6 +17,7 @@ public class Normalblock extends Block{
 
     @Override
     protected void topCrash() {
+        System.out.println(1);
         Sys.getInstance().crash();
     }
 
