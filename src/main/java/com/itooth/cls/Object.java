@@ -17,4 +17,8 @@ public abstract class Object{
     protected Bounds getBounds(Circle circle){
         return circle.getBoundsInParent();
     }
+
+    protected double[] getPos(Bounds bound){
+        return new double[]{bound.getCenterX(), bound.getCenterY()};
+    }
 }
