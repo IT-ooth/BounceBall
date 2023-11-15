@@ -12,11 +12,35 @@ public class Normalblock extends Block{
     
     @Override
     public void update() {
-        //System.out.println(getradian(getPos(getBounds(rectangle)), getPos(Sys.getInstance().getBallbound())));
-        
-        if (isCrashto(getBounds(rectangle))){
-            System.out.println(whereCrashto(getPos(getBounds(rectangle)), getPos(Sys.getInstance().getBallbound())));
-            Sys.getInstance().crash();
-        }
+        runBlock(getBounds(rectangle));
+    }
+
+    @Override
+    protected void topCrash() {
+        Sys.getInstance().crash();
+    }
+
+    @Override
+    protected void bottomCrash() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'bottomCrash'");
+    }
+
+    @Override
+    protected void leftCrash() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'leftCrash'");
+    }
+
+    @Override
+    protected void rightCrash() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'rightCrash'");
+    }
+
+    @Override
+    protected void diagonalCrash() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'diagonalCrash'");
     }
 }
