@@ -7,7 +7,7 @@ import javafx.geometry.Bounds;
 public class Sys{
     
     private static Sys instance = new Sys();
-    public static boolean flag = true;
+    private boolean flag = true;
 
     private Sys(){}
 
@@ -27,14 +27,17 @@ public class Sys{
         return getBall().getBounds();
     }
     
-    // TODO 이 자체에서 flag를 false로 바꿔주면 될 것 같음
     // 스레드 종료
     public void closeThread(){
-        MapController.close();
+        flag = false;
     }
 
     // 공 가져오기
     private Ball getBall(){
         return MapController.getBall();
+    }
+
+    public boolean isflag(){
+        return flag;
     }
 }

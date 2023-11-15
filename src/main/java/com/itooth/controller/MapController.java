@@ -33,8 +33,7 @@ public class MapController extends Thread implements Initializable{
 
     // 스프라이트 업데이트
     public void run(){
-        //TODO flag 를 sys 안에서만 건드릴 수 있게 만들자
-        while (Sys.flag){
+        while (Sys.getInstance().isflag()){
             
             try {Thread.sleep(10L);}
             catch (InterruptedException e){e.printStackTrace();}
@@ -55,9 +54,5 @@ public class MapController extends Thread implements Initializable{
         return (Ball) sprites.get(0);
     }
 
-    // TODO close를 sys에 넘기는 건?
-    // 스레드 종료
-    public static void close(){
-        Sys.flag = false;
-    }
+
 }
