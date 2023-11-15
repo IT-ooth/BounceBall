@@ -10,11 +10,11 @@ public abstract class Object{
     public abstract void update();
 
     // 오브젝트 데이터 가져오기
-    protected Bounds getBounds(Rectangle rectangle){
+    protected Bounds getBounds(Rectangle rectangle) {
         return rectangle.getBoundsInParent();
     }
 
-    protected Bounds getBounds(Circle circle){
+    protected Bounds getBounds(Circle circle) {
         return circle.getBoundsInParent();
     }
 }
