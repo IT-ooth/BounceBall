@@ -8,5 +8,7 @@
    <children>
       <Circle fx:id="ball" fill="DODGERBLUE" layoutX="301.0" layoutY="147.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
       <Rectangle fx:id="ground" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="266.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+      <Rectangle fx:id="ground1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="316.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+      <Rectangle fx:id="ground3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="216.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="50" />
    </children>
 </Pane>
