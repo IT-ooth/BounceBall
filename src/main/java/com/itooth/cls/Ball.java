@@ -54,10 +54,26 @@ public class Ball extends Object{
     }
 
     // 충돌 시 발생
-    public void crashed(){
-        time = 0;
+    public void crashed(Direction direct){
+        switch (direct) {
+            case TOP:
+                time = 0;
+                break;
+            case BOTTOM:
+                time = initial_speed / acceleration;
+                break;
+            case LEFT:
+                setPos(circle.getCenterX() - 1, circle.getCenterY());
+                break;
+            case RIGHT:
+                setPos(circle.getCenterX() + 1, circle.getCenterY());
+                break;
+            default:
+                break;
+        }
     }
 
+    // 공 좌표 설정
     private void setPos(double x, double y){
         circle.setCenterX(x);
         circle.setCenterY(y);

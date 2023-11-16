@@ -17,9 +17,8 @@ public class Sys{
     }
 
     // 충돌 실행 코드
-    // TODO 충돌 실행코든지 충돌 감지 후 충돌실행코드까지 연결해 주는 함수인지 구분 필요할듯
-    public void crash(){
-        getBall().crashed();
+    public void runcrash(Direction direct){
+        getBall().crashed(direct);
     }
 
     // 공 bounds값 가져오기
@@ -27,6 +26,9 @@ public class Sys{
         return getBall().getBounds();
     }
     
+    public void win(){
+        closeThread();
+    }
     // 스레드 종료
     public void closeThread(){
         flag = false;

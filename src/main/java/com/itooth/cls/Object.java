@@ -2,6 +2,7 @@ package com.itooth.cls;
 
 import javafx.geometry.Bounds;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 
 public abstract class Object{
@@ -18,6 +19,10 @@ public abstract class Object{
         return circle.getBoundsInParent();
     }
 
+    protected Bounds getBounds(Polygon polygon){
+        return polygon.getBoundsInParent();
+    }
+    
     protected double[] getPos(Bounds bound){
         return new double[]{bound.getCenterX(), bound.getCenterY()};
     }

@@ -5,7 +5,7 @@ import javafx.geometry.Bounds;
 public abstract class Block extends Object{
 
     //충돌 감지
-    private boolean isCrashto(Bounds bound){
+    protected boolean isCrashto(Bounds bound){
         return bound.intersects(Sys.getInstance().getBallbound());
     }
 
@@ -16,11 +16,11 @@ public abstract class Block extends Object{
         if (degree > 45 && degree < 135){
             return Direction.TOP;
         }
-        else if (degree < 45 || degree > -45){
-            return Direction.RIGHT;
+        else if ((degree > 0 && degree < 45) || (degree < 0 && degree > -45)){
+            return Direction.LEFT;
         }
         else if (degree > 135 || degree < -135){
-            return Direction.LEFT;
+            return Direction.RIGHT;
         }
         else if (degree > -135 && degree < -45){
             return Direction.BOTTOM;
@@ -62,24 +62,22 @@ public abstract class Block extends Object{
             }
         }
     }
+
     // 기본적인 충돌 시 실행 코드
-    // 추가적인 처리가 필요하다면 개별 클래스에서 필요한 부분만 오버라이딩해서 진행
-    // 아직 점프만 구현되고 좌우위 충돌은 감지는 했지만 처리를 못함
-    // TODO 좌우위사선 충돌 처리 필요
     protected void topCrash(){
-        Sys.getInstance().crash();
+        Sys.getInstance().runcrash(Direction.TOP);
     }
     
     protected void bottomCrash(){
-        System.out.println(2);
+        Sys.getInstance().runcrash(Direction.BOTTOM);
     }
 
     protected void leftCrash(){
-        System.out.println(1);
+        Sys.getInstance().runcrash(Direction.LEFT);
     }
     
     protected void rightCrash(){
-        System.out.println(3);
+        Sys.getInstance().runcrash(Direction.RIGHT);
     }
 
     protected void diagonalCrash(){}
