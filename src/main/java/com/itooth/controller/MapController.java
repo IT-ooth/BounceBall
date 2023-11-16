@@ -56,5 +56,4 @@ public class MapController extends Thread implements Initializable{
         return (Ball) sprites.get(0);
     }
 
-
 }
