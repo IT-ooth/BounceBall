@@ -28,7 +28,8 @@ public class Block extends Object{
     public Block(Node node){
         this.node = node;
     }
-        
+    
+    // runblock 함수를 update에 통합
     @Override
     public void update() {
         if (isCrashto(getBounds(node))){
@@ -41,7 +42,7 @@ public class Block extends Object{
         double degree = getDegree(mainPos, subPos);
 
         if (degree > 45 && degree < 135){
-            return Direction.TOP;
+            return Direction.BOTTOM;
         }
         else if ((degree > 0 && degree < 45) || (degree < 0 && degree > -45)){
             return Direction.LEFT;
@@ -50,7 +51,7 @@ public class Block extends Object{
             return Direction.RIGHT;
         }
         else if (degree > -135 && degree < -45){
-            return Direction.BOTTOM;
+            return Direction.TOP;
         }
         else{
             return Direction.OBLIQUE;
