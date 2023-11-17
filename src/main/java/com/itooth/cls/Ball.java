@@ -39,7 +39,10 @@ public class Ball extends Object{
     public void update(){
         configUpdate();
 
-        setPos(circle.getCenterX() - velocityX, circle.getCenterY() - calPos(time));
+        setPos(
+            circle.getCenterX() - velocityX,
+            circle.getCenterY() - calPosY(time)
+            );
     }
 
     // config 값 업데이트
@@ -48,7 +51,7 @@ public class Ball extends Object{
     }
 
     //공 낙하 위치 계산
-    private double calPos(double time){
+    private double calPosY(double time){
         return initial_speed + acceleration * time;
     }   
 
