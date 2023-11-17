@@ -47,15 +47,6 @@ public class MapController extends Thread implements Initializable{
         this.start();
     }
 
-    private void setInitial() {
-        initial_x = ball.getCenterX();
-        initial_y = ball.getCenterY();
-    }
-
-    public static double[] getInitial() {
-        return new double[] {initial_x, initial_y};
-    }
-
     // 스프라이트 업데이트
     public void run(){
         while (Sys.getInstance().isflag()){
@@ -72,6 +63,15 @@ public class MapController extends Thread implements Initializable{
 
         try {Thread.sleep(1L);}
         catch (InterruptedException e){e.printStackTrace();}
+    }
+
+    // 공 초기 위치 세팅 & 넘기기
+    private void setInitial() {
+        initial_x = ball.getCenterX();
+        initial_y = ball.getCenterY();
+    }
+    public static double[] getInitial() {
+        return new double[] {initial_x, initial_y};
     }
 
     // 공 오브젝트 가져오기
