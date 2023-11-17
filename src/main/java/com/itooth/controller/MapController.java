@@ -11,10 +11,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.fxml.FXML;
 
-import com.itooth.cls.Normalblock;
-import com.itooth.cls.Object;
 import com.itooth.cls.Ball;
+import com.itooth.cls.Block;
 import com.itooth.cls.Sys;
+import com.itooth.cls.abstractcls.Object;
 
 public class MapController extends Thread implements Initializable{
 
@@ -29,9 +29,9 @@ public class MapController extends Thread implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources){
         sprites.add(new Ball(ball));
-        sprites.add(new Normalblock(ground));
-        sprites.add(new Normalblock(ground1));
-        sprites.add(new Normalblock(ground3));
+        sprites.add(new Block(ground));
+        sprites.add(new Block(ground1));
+        sprites.add(new Block(ground3));
         this.start();
     }
 

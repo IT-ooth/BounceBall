@@ -1,26 +1,37 @@
 package com.itooth.cls;
 
+import com.itooth.cls.abstractcls.Object;
+
 import javafx.geometry.Bounds;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
 
 public class Ball extends Object{
 
     private static double time = 0;
     private static double initial_speed = 2;
-    private static Circle circle;
     private static double velocityX;
-
+    private Circle circle;
     private static final double acceleration = -10;
 
-    public Ball(Circle c){
-        circle = c;
-
+    public Ball(Circle circle){
+        this.circle = circle;
         // circle can update KeyEvent
         circle.setFocusTraversable(true);
-
+        
+        // 좌우 이동은 추가적인 로직 없이 swtich구문만 있어서 lambda로 넣는게 더 좋아보임
+        // 나중에 아이템도 추가 될 건데 moveside는 안어울리기도 하고
         // KeyEvent handler
-        circle.setOnKeyPressed(e -> moveSide(e));
+        circle.setOnKeyPressed(e -> {
+            switch (e.getCode()) {
+                case LEFT:
+                    velocityX = 1;
+                    break;
+                case RIGHT:
+                    velocityX = -1;
+                    break;
+                default: break;
+            }}
+        );
         circle.setOnKeyReleased(e -> {velocityX = 0;});
     }
 
@@ -41,18 +52,6 @@ public class Ball extends Object{
         return initial_speed + acceleration * time;
     }   
 
-    private void moveSide(KeyEvent event){
-        switch (event.getCode()) {
-            case LEFT:
-                velocityX = 1;
-                break;
-            case RIGHT:
-                velocityX = -1;
-                break;
-            default: break;
-        }
-    }
-
     // 충돌 시 발생
     public void crashed(Direction direct){
         switch (direct) {
@@ -63,10 +62,10 @@ public class Ball extends Object{
                 time = initial_speed / acceleration;
                 break;
             case LEFT:
-                setPos(circle.getCenterX() - 1, circle.getCenterY());
+                setPos(circle.getCenterX() + velocityX, circle.getCenterY());
                 break;
             case RIGHT:
-                setPos(circle.getCenterX() + 1, circle.getCenterY());
+                setPos(circle.getCenterX() + velocityX, circle.getCenterY());
                 break;
             default:
                 break;
