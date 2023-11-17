@@ -6,10 +6,10 @@ import javafx.scene.shape.Rectangle;
 public class Moveblock extends Block{
 
     private Rectangle moveBlock;
-    private MoveVector vector;
+    private Movevector vector;
 
     //생성자
-    public Moveblock(Rectangle block, MoveVector vector){
+    public Moveblock(Rectangle block, Movevector vector){
         moveBlock = block;   
         this.vector = vector;
     } 

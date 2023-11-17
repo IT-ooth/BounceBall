@@ -2,11 +2,15 @@
 
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itooth.controller.MapController">
    <children>
       <Circle fx:id="ball" fill="DODGERBLUE" layoutX="301.0" layoutY="147.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-      <Rectangle fx:id="ground" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="38.0" layoutX="266.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="ground" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="266.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+      <Rectangle fx:id="ground1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="344.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+      <Rectangle fx:id="ground3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="216.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+      <Polygon fx:id="star" fill="DODGERBLUE" layoutX="367.0" layoutY="198.0" points="-19.0, 40.0, 23.0, 40.0, -1.0, 3.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </Pane>

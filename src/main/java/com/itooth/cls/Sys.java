@@ -7,7 +7,7 @@ import javafx.geometry.Bounds;
 public class Sys{
     
     private static Sys instance = new Sys();
-    public static boolean flag = true;
+    private boolean flag = true;
 
     private Sys(){}
 
@@ -17,22 +17,29 @@ public class Sys{
     }
 
     // 충돌 실행 코드
-    public void crash(){
-        getBall().crashed();
+    public void runcrash(Direction direct){
+        getBall().crashed(direct);
     }
 
     // 공 bounds값 가져오기
     public Bounds getBallbound(){
-        return getBall().getBounds(getBall().getShape());
+        return getBall().getBounds();
     }
     
+    public void win(){
+        closeThread();
+    }
     // 스레드 종료
     public void closeThread(){
-        MapController.close();
+        flag = false;
     }
 
     // 공 가져오기
     private Ball getBall(){
         return MapController.getBall();
+    }
+
+    public boolean isflag(){
+        return flag;
     }
 }

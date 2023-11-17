@@ -12,8 +12,6 @@ public class Normalblock extends Block{
     
     @Override
     public void update() {
-        if (isCrashto(getBounds(rectangle))){
-            Sys.getInstance().crash();
-        }
+        runBlock(getBounds(rectangle));
     }
 }
