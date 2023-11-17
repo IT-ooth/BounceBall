@@ -29,6 +29,7 @@ public class Sys{
     public void win(){
         closeThread();
     }
+    
     // 스레드 종료
     public void closeThread(){
         flag = false;
