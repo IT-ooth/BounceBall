@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 
 import com.itooth.cls.Normalblock;
 import com.itooth.cls.Object;
-import com.itooth.cls.Star;
 import com.itooth.cls.Ball;
 import com.itooth.cls.Sys;
 
@@ -33,7 +32,6 @@ public class MapController extends Thread implements Initializable{
         sprites.add(new Normalblock(ground));
         sprites.add(new Normalblock(ground1));
         sprites.add(new Normalblock(ground3));
-        sprites.add(new Star(star));
         this.start();
     }
 
