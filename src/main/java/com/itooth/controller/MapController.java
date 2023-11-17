@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 
 import com.itooth.cls.Normalblock;
 import com.itooth.cls.Object;
+import com.itooth.cls.Obstacle;
 import com.itooth.cls.Star;
 import com.itooth.cls.Ball;
 import com.itooth.cls.Sys;
@@ -23,18 +24,36 @@ public class MapController extends Thread implements Initializable{
     @FXML private Rectangle ground;
     @FXML private Rectangle ground1;
     @FXML private Rectangle ground3;
+    @FXML private Rectangle ob;
     @FXML private Polygon star;
+
     private static List<Object> sprites = new ArrayList<Object>();
+    private static double initial_x;
+    private static double initial_y;
+
 
     // 초기화
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        setInitial();
+
         sprites.add(new Ball(ball));
         sprites.add(new Normalblock(ground));
         sprites.add(new Normalblock(ground1));
         sprites.add(new Normalblock(ground3));
+        sprites.add(new Obstacle(ob));
         sprites.add(new Star(star));
+
         this.start();
+    }
+
+    private void setInitial() {
+        initial_x = ball.getCenterX();
+        initial_y = ball.getCenterY();
+    }
+
+    public static double[] getInitial() {
+        return new double[] {initial_x, initial_y};
     }
 
     // 스프라이트 업데이트
@@ -59,5 +78,4 @@ public class MapController extends Thread implements Initializable{
     public static Ball getBall(){
         return (Ball) sprites.get(0);
     }
-
 }
