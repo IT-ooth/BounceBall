@@ -1,12 +1,39 @@
 package com.itooth.cls;
 
-import javafx.geometry.Bounds;
+import com.itooth.cls.abstractcls.Object;
 
-public abstract class Block extends Object{
+import javafx.scene.Node;
 
-    //충돌 감지
-    protected boolean isCrashto(Bounds bound){
-        return bound.intersects(Sys.getInstance().getBallbound());
+public class Block extends Object{
+
+    /* 
+     * 모든 shape 내의 함수가 Node를 상속 받고 있어 Block을 생성할 때 circle, rectangle등 shape 내에 존재하는 클래스면 전부 
+     * Node로 up캐스팅 되서 들어감
+     * up캐스팅된 node를 굳이 down캐스팅 안해도 getboundInParent를 할 수 있음
+    */
+
+    private Node node;
+    private static Block instance = new Block();
+
+    /*
+     * runblock함수에서 4분기로 나누어서 함수를 동작하는 것이 Sys, ball에서 이미 분기를 나누는데 비효율적이라고 생각했음
+     * 그래서 Direction에 jump라는 함수를 연결해 분기를 나누지 않고도 동작 할 수 있게 만듬
+     * 그러면 Direction은 Block의 내부 함수가 필요하기 때문에 객체를 생성하지 않고 만들 수 있도록 getInstance 제공
+     */
+    private Block(){};
+    public static Block getInstance(){
+        return instance;
+    }
+
+    public Block(Node node){
+        this.node = node;
+    }
+        
+    @Override
+    public void update() {
+        if (isCrashto(getBounds(node))){
+            whereCrashto(getPos(getBounds(node)), getPos(Sys.getInstance().getBallbound())).jump();
+        }
     }
 
     // 충돌 방향 판정
@@ -37,48 +64,22 @@ public abstract class Block extends Object{
         return Math.atan2(dy, dx) * 180 / Math.PI;
     }
 
-    // 블럭이 충돌했을 때 실행되는 코드
-    protected void runBlock(Bounds bound){
-
-        if (isCrashto(bound)){
-            switch (whereCrashto(getPos(bound), getPos(Sys.getInstance().getBallbound()))) {
-                case RIGHT:
-                    rightCrash();
-                    break;
-                case TOP:
-                    topCrash();
-                    break;
-                case LEFT:
-                    leftCrash();
-                    break;
-                case BOTTOM:
-                    bottomCrash();
-                    break;
-                case OBLIQUE:
-                    diagonalCrash();
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
     // 기본적인 충돌 시 실행 코드
-    protected void topCrash(){
+    public void topCrash(){
         Sys.getInstance().runcrash(Direction.TOP);
     }
     
-    protected void bottomCrash(){
+    public void bottomCrash(){
         Sys.getInstance().runcrash(Direction.BOTTOM);
     }
 
-    protected void leftCrash(){
+    public void leftCrash(){
         Sys.getInstance().runcrash(Direction.LEFT);
     }
     
-    protected void rightCrash(){
+    public void rightCrash(){
         Sys.getInstance().runcrash(Direction.RIGHT);
     }
 
-    protected void diagonalCrash(){}
+    public void diagonalCrash(){}
 }
