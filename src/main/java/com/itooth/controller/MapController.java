@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.shape.Circle;
 import javafx.fxml.FXML;
 
+import com.itooth.cls.Moveblock;
 import com.itooth.cls.Normalblock;
 import com.itooth.cls.Object;
 import com.itooth.cls.Ball;

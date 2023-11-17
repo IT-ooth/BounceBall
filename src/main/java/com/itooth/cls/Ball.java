@@ -11,7 +11,7 @@ public class Ball extends Object{
     private static Circle circle;
     private static double floor;
 
-    private static final double acceleration = -10;
+    private static final double acceleration = -50;
 
     public Ball(Circle c){
         circle = c;
@@ -56,7 +56,7 @@ public class Ball extends Object{
 
     // 충돌 시 발생
     public void crashed(){
-        initial_speed = 10;
+        initial_speed = 30;
         floor = circle.getCenterY();
         time = 0;
     }
