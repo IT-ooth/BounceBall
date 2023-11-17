@@ -82,4 +82,10 @@ public class Ball extends Object{
     public Bounds getBounds(){
         return getBounds(circle);
     }
+
+    // 공 초기화
+    public void resetBall(double x, double y) {
+        time = 0;
+        setPos(x,y);
+    }
 }
