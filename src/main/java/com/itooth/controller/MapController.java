@@ -11,6 +11,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.fxml.FXML;
 
+import com.itooth.cls.Movevector;
 import com.itooth.cls.Moveblock;
 import com.itooth.cls.Normalblock;
 import com.itooth.cls.Object;
@@ -23,6 +24,7 @@ public class MapController extends Thread implements Initializable{
     @FXML private Rectangle ground;
     @FXML private Rectangle ground1;
     @FXML private Rectangle ground3;
+    @FXML private Rectangle ground4;
     @FXML private Polygon star;
     private static List<Object> sprites = new ArrayList<Object>();
 
@@ -33,6 +35,7 @@ public class MapController extends Thread implements Initializable{
         sprites.add(new Normalblock(ground));
         sprites.add(new Normalblock(ground1));
         sprites.add(new Normalblock(ground3));
+        sprites.add(new Moveblock(ground4, Movevector.RIGHT));
         this.start();
     }
 

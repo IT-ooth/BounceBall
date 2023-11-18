@@ -16,8 +16,8 @@ public class Moveblock extends Block{
 
     //공이 블럭의 윗면에 충돌했을 때만 블럭이 이동하도록 bottomcrash() 오버로딩
     @Override
-    protected void bottomCrash(){
-        Sys.getInstance().runcrash(Direction.BOTTOM);
+    protected void topCrash(){
+        Sys.getInstance().runcrash(Direction.TOP);
         move();
     }
     
