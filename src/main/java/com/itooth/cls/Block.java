@@ -11,19 +11,14 @@ public class Block extends Object{
      * Node로 up캐스팅 되서 들어감
      * up캐스팅된 node를 굳이 down캐스팅 안해도 getboundInParent를 할 수 있음
     */
-
-    private Node node;
-    private static Block instance = new Block();
+    public Node node;
 
     /*
      * runblock함수에서 4분기로 나누어서 함수를 동작하는 것이 Sys, ball에서 이미 분기를 나누는데 비효율적이라고 생각했음
      * 그래서 Direction에 jump라는 함수를 연결해 분기를 나누지 않고도 동작 할 수 있게 만듬
      * 그러면 Direction은 Block의 내부 함수가 필요하기 때문에 객체를 생성하지 않고 만들 수 있도록 getInstance 제공
      */
-    public Block(){};
-    public static Block getInstance(){
-        return instance;
-    }
+
 
     public Block(Node node){
         this.node = node;
@@ -66,21 +61,21 @@ public class Block extends Object{
     }
 
     // 기본적인 충돌 시 실행 코드
-    public void topCrash(){
+    public static void topCrash(){
         Sys.getInstance().runCrash(Direction.TOP);
     }
     
-    public void bottomCrash(){
+    public static void bottomCrash(){
         Sys.getInstance().runCrash(Direction.BOTTOM);
     }
 
-    public void leftCrash(){
+    public static void leftCrash(){
         Sys.getInstance().runCrash(Direction.LEFT);
     }
     
-    public void rightCrash(){
+    public static void rightCrash(){
         Sys.getInstance().runCrash(Direction.RIGHT);
     }
 
-    public void diagonalCrash(){}
+    public static void diagonalCrash(){}
 }

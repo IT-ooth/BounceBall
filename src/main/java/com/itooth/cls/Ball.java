@@ -79,9 +79,9 @@ public class Ball extends Object{
     }
 
     // 공 초기화
-    public void resetBall(double x, double y) {
+    public void resetBall(double[] initial_pos) {
         time = 0;
-        setPos(x,y);
+        setPos(initial_pos[0], initial_pos[1]);
     }
 
     public Bounds getBounds(){

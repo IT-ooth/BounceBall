@@ -4,7 +4,6 @@ import java.util.ResourceBundle;
 
 import java.net.URL;
 
-import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.Group;
@@ -28,13 +27,10 @@ public class MapController extends Controller{
     @FXML private Polygon star1;
     @FXML private Polygon star2;
 
-    private static double[] initial_pos = new double[2];
-
-
     // 초기화
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        setInitial();
+        setInitial(ball);
 
         //ball 객체는 sprites에서 무조건 0번째 인덱스여야 함.
         sprites.add(new Ball(ball));
@@ -46,22 +42,14 @@ public class MapController extends Controller{
         }
 
         for (Node block: blocks.getChildren()){
-            sprites.add(new Block((Rectangle)block));
+            sprites.add(new Block(block));
         }
 
         for (Node obs: obstacles.getChildren()){
-            sprites.add(new Obstacle((Rectangle)obs));
+            sprites.add(new Obstacle(obs));
         }
 
         this.start();
     }
-    // 공 초기 위치 세팅 & 넘기기
-    private void setInitial() {
-        initial_pos[0] = ball.getCenterX();
-        initial_pos[1] = ball.getCenterY();
-    }
-    
-    public static double[] getInitial() {
-        return initial_pos;
-    }
+
 }

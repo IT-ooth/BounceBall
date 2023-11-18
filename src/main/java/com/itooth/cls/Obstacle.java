@@ -1,18 +1,16 @@
 package com.itooth.cls;
 
-import javafx.scene.shape.Rectangle;
+import javafx.scene.Node;
 
 public class Obstacle extends Block{
-    
-    private Rectangle rectangle;
 
-    public Obstacle(Rectangle block){
-        rectangle = block;   
+    public Obstacle(Node block){
+        super(block);
     }
 
     @Override
     public void update() {
-        if (isCrashto(getBounds(rectangle))) {
+        if (isCrashto(getBounds(node))) {
             gameover();
         }
     }
@@ -21,3 +19,4 @@ public class Obstacle extends Block{
         Sys.getInstance().resetBall();
     }
 }
+ 
