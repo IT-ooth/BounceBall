@@ -23,13 +23,10 @@ public class MapController extends Controller{
     @FXML private Group blocks;
     @FXML private Group obstacles;
 
-    private static double[] initial_pos = new double[2];
-
-
     // 초기화
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        setInitial();
+        setInitial(ball);
 
         //ball 객체는 sprites에서 무조건 0번째 인덱스여야 함.
         sprites.add(new Ball(ball));
@@ -44,13 +41,5 @@ public class MapController extends Controller{
 
         this.start();
     }
-    // 공 초기 위치 세팅 & 넘기기
-    private void setInitial() {
-        initial_pos[0] = ball.getCenterX();
-        initial_pos[1] = ball.getCenterY();
-    }
-    
-    public static double[] getInitial() {
-        return initial_pos;
-    }
+
 }
