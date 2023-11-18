@@ -12,7 +12,7 @@ public abstract class Object{
 
     //충돌 감지
     protected boolean isCrashto(Bounds bound){
-        return bound.intersects(Sys.getInstance().getBallbound());
+        return bound.intersects(Sys.getInstance().getBallBounds());
     }
 
     // 오브젝트 데이터 가져오기

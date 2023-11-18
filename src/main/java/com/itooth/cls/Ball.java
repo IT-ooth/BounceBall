@@ -44,10 +44,15 @@ public class Ball extends Object{
             circle.getCenterY() - calPosY(time)
             );
     }
-
-    // config 값 업데이트
+    // 틱마다 최신화 할 것들 모음
     private void configUpdate(){ 
         time += 0.01;
+    }
+
+    // 공 좌표 설정
+    private void setPos(double x, double y){
+        circle.setCenterX(x);
+        circle.setCenterY(y);
     }
 
     //공 낙하 위치 계산
@@ -75,12 +80,12 @@ public class Ball extends Object{
         }
     }
 
-    // 공 좌표 설정
-    private void setPos(double x, double y){
-        circle.setCenterX(x);
-        circle.setCenterY(y);
+    // 공 초기화
+    public void resetBall(double x, double y) {
+        time = 0;
+        setPos(x,y);
     }
-    
+
     public Bounds getBounds(){
         return getBounds(circle);
     }

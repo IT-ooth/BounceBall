@@ -13,7 +13,7 @@ public abstract class Controller extends Thread implements Initializable{
     
     // 스프라이트 업데이트
     public void run(){
-        while (Sys.getInstance().isflag()){
+        while (Sys.getInstance().isFlag()){
             
             try {Thread.sleep(10L);}
             catch (InterruptedException e){e.printStackTrace();}

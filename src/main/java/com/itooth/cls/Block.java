@@ -20,7 +20,7 @@ public class Block extends Object{
      * 그래서 Direction에 jump라는 함수를 연결해 분기를 나누지 않고도 동작 할 수 있게 만듬
      * 그러면 Direction은 Block의 내부 함수가 필요하기 때문에 객체를 생성하지 않고 만들 수 있도록 getInstance 제공
      */
-    private Block(){};
+    public Block(){};
     public static Block getInstance(){
         return instance;
     }
@@ -33,7 +33,7 @@ public class Block extends Object{
     @Override
     public void update() {
         if (isCrashto(getBounds(node))){
-            whereCrashto(getPos(getBounds(node)), getPos(Sys.getInstance().getBallbound())).jump();
+            whereCrashto(getPos(getBounds(node)), getPos(Sys.getInstance().getBallBounds())).jump();
         }
     }
 
@@ -67,19 +67,19 @@ public class Block extends Object{
 
     // 기본적인 충돌 시 실행 코드
     public void topCrash(){
-        Sys.getInstance().runcrash(Direction.TOP);
+        Sys.getInstance().runCrash(Direction.TOP);
     }
     
     public void bottomCrash(){
-        Sys.getInstance().runcrash(Direction.BOTTOM);
+        Sys.getInstance().runCrash(Direction.BOTTOM);
     }
 
     public void leftCrash(){
-        Sys.getInstance().runcrash(Direction.LEFT);
+        Sys.getInstance().runCrash(Direction.LEFT);
     }
     
     public void rightCrash(){
-        Sys.getInstance().runcrash(Direction.RIGHT);
+        Sys.getInstance().runCrash(Direction.RIGHT);
     }
 
     public void diagonalCrash(){}
