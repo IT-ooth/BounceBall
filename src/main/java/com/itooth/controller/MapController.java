@@ -6,14 +6,17 @@ import java.net.URL;
 
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.fxml.FXML;
 
 
 import com.itooth.cls.Obstacle;
+import com.itooth.cls.Sys;
 import com.itooth.cls.Ball;
 import com.itooth.cls.Block;
+import com.itooth.cls.Star;
 import com.itooth.cls.abstractcls.Controller;
 
 public class MapController extends Controller{
@@ -33,6 +36,12 @@ public class MapController extends Controller{
 
         //ball 객체는 sprites에서 무조건 0번째 인덱스여야 함.
         sprites.add(new Ball(ball));
+
+        //star 객체 초기화
+        Sys.starGroup = stars;
+        for (Node star: stars.getChildren()) {
+            sprites.add(new Star((Polygon)star));
+        }
 
         for (Node block: blocks.getChildren()){
             sprites.add(new Block((Rectangle)block));
