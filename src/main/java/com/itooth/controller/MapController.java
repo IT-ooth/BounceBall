@@ -4,7 +4,6 @@ import java.util.ResourceBundle;
 
 import java.net.URL;
 
-import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -32,11 +31,11 @@ public class MapController extends Controller{
         sprites.add(new Ball(ball));
 
         for (Node block: blocks.getChildren()){
-            sprites.add(new Block((Rectangle)block));
+            sprites.add(new Block(block));
         }
 
         for (Node obs: obstacles.getChildren()){
-            sprites.add(new Obstacle((Rectangle)obs));
+            sprites.add(new Obstacle(obs));
         }
 
         this.start();

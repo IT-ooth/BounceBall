@@ -47,5 +47,5 @@ public abstract class Controller extends Thread implements Initializable{
     
     public static double[] getInitial() {
         return initial_pos;
-    }    
+    }
 }

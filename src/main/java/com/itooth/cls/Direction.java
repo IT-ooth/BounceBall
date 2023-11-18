@@ -4,31 +4,31 @@ public enum Direction {
     TOP{
         @Override
         void jump(){
-            Block.getInstance().topCrash();
+            Block.topCrash();
         }
     },
     BOTTOM{
         @Override
         void jump(){
-            Block.getInstance().bottomCrash();
+            Block.bottomCrash();
         }
     },
     LEFT{
         @Override
         void jump(){
-            Block.getInstance().leftCrash();
+            Block.leftCrash();
         }
     },
     RIGHT{
         @Override
         void jump(){
-            Block.getInstance().rightCrash();
+            Block.rightCrash();
         }
     },
     OBLIQUE{
         @Override
         void jump(){
-            Block.getInstance().diagonalCrash();
+            Block.diagonalCrash();
         }
     };
 
