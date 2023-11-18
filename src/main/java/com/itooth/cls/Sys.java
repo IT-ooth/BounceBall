@@ -3,11 +3,15 @@ package com.itooth.cls;
 import com.itooth.controller.MapController;
 
 import javafx.geometry.Bounds;
+import javafx.scene.Group;
+import javafx.scene.shape.Polygon;
+import javafx.utility.Platform;
 
 public class Sys{
     
     private static Sys instance = new Sys();
     private boolean flag = true;
+    public static Group starGroup;
 
     private Sys(){}
 
@@ -48,5 +52,18 @@ public class Sys{
     public void resetBall(){
         double[] ini = MapController.getInitial();
         getBall().resetBall(ini[0], ini[1]);
+    }
+
+    // ------- star -------
+    // 공과 충돌한 별 지우기
+    public static void reduceStar(Polygon polygon){
+        if (starGroup.getChildren().isEmpty()){
+            System.out.println("Stage Clear");
+            // TODO 다음 스테이지로 넘어가는 함수
+        }
+        else{
+            // 원래 javafx에서 작업 스레드는 UI 변경 못해서 Platform.runLater() 함수로 별의 Polygon UI를 삭제함
+            Platform.runLater(() -> {starGroup.getChildren().remove(polygon);});
+        }
     }
 }
