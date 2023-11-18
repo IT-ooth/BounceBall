@@ -69,9 +69,7 @@ public class Ball extends Object{
             case BOTTOM:
                 time = initial_speed / acceleration;
                 break;
-            case LEFT:
-                setPos(circle.getCenterX() + velocityX, circle.getCenterY());
-                break;
+            case LEFT: 
             case RIGHT:
                 setPos(circle.getCenterX() + velocityX, circle.getCenterY());
                 break;
