@@ -21,9 +21,11 @@ public class App extends Application{
     @Override
     public void start(Stage stage) throws IOException{
         scene = new Scene(loadFXML("primary"), 640, 480);
-        stage.setOnCloseRequest(e -> Sys.getInstance().closeThread());
         stage.setScene(scene);
         stage.show();
+
+        // window close event listener
+        stage.setOnCloseRequest(e -> Sys.getInstance().closeThread());
     }
 
     // fxml 연결

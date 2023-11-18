@@ -6,7 +6,7 @@ public abstract class Block extends Object{
 
     //충돌 감지
     protected boolean isCrashto(Bounds bound){
-        return bound.intersects(Sys.getInstance().getBallbound());
+        return bound.intersects(Sys.getInstance().getBallBounds());
     }
 
     // 충돌 방향 판정
@@ -41,7 +41,7 @@ public abstract class Block extends Object{
     protected void runBlock(Bounds bound){
 
         if (isCrashto(bound)){
-            switch (whereCrashto(getPos(bound), getPos(Sys.getInstance().getBallbound()))) {
+            switch (whereCrashto(getPos(bound), getPos(Sys.getInstance().getBallBounds()))) {
                 case RIGHT:
                     rightCrash();
                     break;
@@ -65,19 +65,19 @@ public abstract class Block extends Object{
 
     // 기본적인 충돌 시 실행 코드
     protected void topCrash(){
-        Sys.getInstance().runcrash(Direction.TOP);
+        Sys.getInstance().runCrash(Direction.TOP);
     }
     
     protected void bottomCrash(){
-        Sys.getInstance().runcrash(Direction.BOTTOM);
+        Sys.getInstance().runCrash(Direction.BOTTOM);
     }
 
     protected void leftCrash(){
-        Sys.getInstance().runcrash(Direction.LEFT);
+        Sys.getInstance().runCrash(Direction.LEFT);
     }
     
     protected void rightCrash(){
-        Sys.getInstance().runcrash(Direction.RIGHT);
+        Sys.getInstance().runCrash(Direction.RIGHT);
     }
 
     protected void diagonalCrash(){}
