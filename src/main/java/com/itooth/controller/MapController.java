@@ -6,6 +6,8 @@ import java.net.URL;
 
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.fxml.FXML;
 
 
@@ -17,10 +19,9 @@ import com.itooth.cls.abstractcls.Controller;
 public class MapController extends Controller{
 
     @FXML private Circle ball;
-    @FXML private Rectangle ground;
-    @FXML private Rectangle ground1;
-    @FXML private Rectangle ground3;
-    @FXML private Rectangle ob;
+    @FXML private Group stars;
+    @FXML private Group blocks;
+    @FXML private Group obstacles;
 
     private static double[] initial_pos = new double[2];
 
@@ -30,12 +31,16 @@ public class MapController extends Controller{
     public void initialize(URL location, ResourceBundle resources){
         setInitial();
 
+        //ball 객체는 sprites에서 무조건 0번째 인덱스여야 함.
         sprites.add(new Ball(ball));
-        sprites.add(new Block(ground));
-        sprites.add(new Block(ground1));
-        sprites.add(new Block(ground3));
 
-        sprites.add(new Obstacle(ob)); 
+        for (Node block: blocks.getChildren()){
+            sprites.add(new Block((Rectangle)block));
+        }
+
+        for (Node obs: obstacles.getChildren()){
+            sprites.add(new Obstacle((Rectangle)obs));
+        }
 
         this.start();
     }
