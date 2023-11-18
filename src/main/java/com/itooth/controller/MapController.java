@@ -25,8 +25,7 @@ public class MapController extends Thread implements Initializable{
     @FXML private Rectangle ob;
 
     private static List<Object> sprites = new ArrayList<Object>();
-    private static double initial_x;
-    private static double initial_y;
+    private static double[] initial_pos = new double[2];
 
 
     // 초기화
@@ -63,11 +62,11 @@ public class MapController extends Thread implements Initializable{
 
     // 공 초기 위치 세팅 & 넘기기
     private void setInitial() {
-        initial_x = ball.getCenterX();
-        initial_y = ball.getCenterY();
+        initial_pos[0] = ball.getCenterX();
+        initial_pos[1] = ball.getCenterY();
     }
     public static double[] getInitial() {
-        return new double[] {initial_x, initial_y};
+        return initial_pos;
     }
 
     // 공 오브젝트 가져오기
