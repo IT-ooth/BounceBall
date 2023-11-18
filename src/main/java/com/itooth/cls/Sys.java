@@ -26,7 +26,7 @@ public class Sys{
         flag = false;
     }
     // 
-    public boolean getFlag(){
+    public boolean isFlag(){
         return flag;
     }
 
@@ -44,7 +44,7 @@ public class Sys{
         return MapController.getBall();
     }
     // 공 초기화하기
-    public void resetBall() {
+    public void resetBall(){
         double[] ini = MapController.getInitial();
         getBall().resetBall(ini[0], ini[1]);
     }

@@ -8,13 +8,11 @@ import java.net.URL;
 import javafx.scene.shape.Rectangle;
 import javafx.fxml.Initializable;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Polygon;
 import javafx.fxml.FXML;
 
 import com.itooth.cls.Normalblock;
 import com.itooth.cls.Object;
 import com.itooth.cls.Obstacle;
-import com.itooth.cls.Star;
 import com.itooth.cls.Ball;
 import com.itooth.cls.Sys;
 
@@ -25,7 +23,6 @@ public class MapController extends Thread implements Initializable{
     @FXML private Rectangle ground1;
     @FXML private Rectangle ground3;
     @FXML private Rectangle ob;
-    @FXML private Polygon star;
 
     private static List<Object> sprites = new ArrayList<Object>();
     private static double initial_x;
@@ -42,14 +39,13 @@ public class MapController extends Thread implements Initializable{
         sprites.add(new Normalblock(ground1));
         sprites.add(new Normalblock(ground3));
         sprites.add(new Obstacle(ob));
-        sprites.add(new Star(star));
 
         this.start();
     }
 
     // 스프라이트 업데이트
     public void run(){
-        while (Sys.getInstance().getFlag()){
+        while (Sys.getInstance().isFlag()){
             
             try {Thread.sleep(10L);}
             catch (InterruptedException e){e.printStackTrace();}
