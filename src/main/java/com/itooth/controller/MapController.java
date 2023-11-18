@@ -25,6 +25,8 @@ public class MapController extends Controller{
     @FXML private Group stars;
     @FXML private Group blocks;
     @FXML private Group obstacles;
+    @FXML private Polygon star1;
+    @FXML private Polygon star2;
 
     private static double[] initial_pos = new double[2];
 
@@ -38,7 +40,7 @@ public class MapController extends Controller{
         sprites.add(new Ball(ball));
 
         //star 객체 초기화
-        Sys.starGroup = stars;
+        Sys.getInstance().setStarGroup(stars);
         for (Node star: stars.getChildren()) {
             sprites.add(new Star((Polygon)star));
         }
