@@ -1,24 +1,23 @@
 package com.itooth.cls;
-
 import com.itooth.cls.abstractcls.Object;
 
-import javafx.scene.shape.Polygon;
+import javafx.scene.Node;
 
 public class Star extends Object{
 
-    private Polygon polygon;
+    private Node node;
 
-    public Star(Polygon p){
-        polygon = p;
+    public Star(Node node){
+        this.node = node;
     }
 
     @Override
     public void update(){
         
-         if (( polygon != null) && (isCrashto(getBounds(polygon)))){
+         if (( node != null) && (isCrashto(getBounds(node)))){
             //System.out.println("asd");
-            Sys.getInstance().reduceStar(this.polygon);
-            polygon = null;
+            Sys.getInstance().reduceStar(this.node);
+            node = null;
          }
     }
 

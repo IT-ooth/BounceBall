@@ -38,7 +38,7 @@ public class MapController extends Controller{
         //star 객체 초기화
         Sys.getInstance().setStarGroup(stars);
         for (Node star: stars.getChildren()) {
-            sprites.add(new Star((Polygon)star));
+            sprites.add(new Star(star));
         }
 
         for (Node block: blocks.getChildren()){

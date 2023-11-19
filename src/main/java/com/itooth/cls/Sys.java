@@ -1,18 +1,17 @@
 package com.itooth.cls;
 
-import java.util.Map;
-
 import com.itooth.controller.MapController;
 
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
-import javafx.scene.shape.Polygon;
+import javafx.scene.Node;
 import javafx.application.Platform;
 
 public class Sys{
     
     private static Sys instance = new Sys();
     private boolean flag = true;
+    private int NumOfstar = 0;
     public Group starGroup;
 
     private Sys(){}
@@ -59,30 +58,20 @@ public class Sys{
     // ------- star -------
     public void setStarGroup(Group group){
         this.starGroup = group;
+        NumOfstar = starGroup.getChildren().size();
     }
     // 공과 충돌한 별 지우기
-    public void reduceStar(Polygon polygon){
+    public void reduceStar(Node node){
 
         // 원래 javafx에서 작업 스레드는 UI 변경 못해서 Platform.runLater() 함수로 별의 Polygon UI를 삭제함
-        int polygon_index = starGroup.getChildren().indexOf(polygon);
-        //System.out.println(polygon.getId());
-        Platform.runLater(() -> {starGroup.getChildren().remove(polygon_index, polygon_index+1);});
-        //Platform.runLater(() -> {starGroup.getChildren().remove(polygon_index);});
-        //Platform.runLater(() -> {starGroup.getChildren().remove(polygon);});
-        
-        // 왜인지 모르겠지만 이 출력문이 있어야 실행이 됨?
-        //starGroup.getChildren().isEmpty();
-        System.out.println();
-        //System.out.println(""+starGroup.getChildren().isEmpty());
-        if (starGroup.getChildren().isEmpty()){
+        Platform.runLater(() -> {starGroup.getChildren().remove(node);});
+        NumOfstar -= 1;
+
+        if (NumOfstar <= 0){
             win();
         }
         else{
             
         }
-    }
-    
-    public void test(){
-        System.out.println("test");
     }
 }
