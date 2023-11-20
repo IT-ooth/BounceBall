@@ -16,7 +16,6 @@ public class Block extends Object{
     /*
      * runblock함수에서 4분기로 나누어서 함수를 동작하는 것이 Sys, ball에서 이미 분기를 나누는데 비효율적이라고 생각했음
      * 그래서 Direction에 jump라는 함수를 연결해 분기를 나누지 않고도 동작 할 수 있게 만듬
-     * 그러면 Direction은 Block의 내부 함수가 필요하기 때문에 객체를 생성하지 않고 만들 수 있도록 getInstance 제공
      */
 
 
