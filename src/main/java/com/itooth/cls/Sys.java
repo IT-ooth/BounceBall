@@ -21,6 +21,7 @@ public class Sys{
     public void win(){
         closeThread();
     }
+    
     // 스레드 종료
     public void closeThread(){
         flag = false;
@@ -45,7 +46,6 @@ public class Sys{
     }
     // 공 초기화하기
     public void resetBall(){
-        double[] ini = MapController.getInitial();
-        getBall().resetBall(ini[0], ini[1]);
+        getBall().resetBall(MapController.getInitial());
     }
 }
