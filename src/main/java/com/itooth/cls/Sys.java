@@ -2,6 +2,10 @@ package com.itooth.cls;
 
 import com.itooth.controller.MapController;
 
+import java.io.IOException;
+
+import com.itooth.App;
+
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -25,7 +29,10 @@ public class Sys{
     // 별 다먹었을 때 쓰는 함수
     public void win(){
         //System.out.println("Stage Clear");
-        closeThread();
+        resetBall();
+        try {App.setRoot("Map2");}
+        catch (IOException e){e.printStackTrace();}
+        //closeThread();
     }
     
     // 스레드 종료
@@ -52,6 +59,8 @@ public class Sys{
     }
     // 공 초기화하기
     public void resetBall(){
+        try {App.setRoot("Map");}
+        catch (IOException e){e.printStackTrace();}
         getBall().resetBall(MapController.getInitial());
     }
 
