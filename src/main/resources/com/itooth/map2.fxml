@@ -18,11 +18,10 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="316.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="266.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="366.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="466.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="416.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="466.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
          </children>
       </Group>
-      <Group />
       <Group fx:id="obstacles">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f20" height="50" layoutX="166.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE" width="50" />
@@ -128,6 +127,5 @@
             </Polygon>
          </children>
       </Group>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c7c8c9" height="50" layoutX="111.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="50" />
    </children>
 </Pane>
