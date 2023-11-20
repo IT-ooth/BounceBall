@@ -48,4 +48,9 @@ public class Sys{
         double[] ini = MapController.getInitial();
         getBall().resetBall(ini[0], ini[1]);
     }
+
+    // 공 initial speed 가져오기
+    //public void initialspeedBall(){
+        //return getBall().
+    //}
 }

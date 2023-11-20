@@ -19,6 +19,6 @@ public class Jumpblock extends Block{
     @Override
     public void bottomCrash(){
         super.bottomCrash();
-        Sys.getInstance().
+        Sys.getInstance().getBall().initial_speed;
     }
 }
