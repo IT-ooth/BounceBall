@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
 <?import java.lang.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.layout.Pane?>
@@ -9,23 +9,72 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itooth.controller.MapController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itooth.controller.MapController">
    <children>
-      <Circle fx:id="ball" fill="DODGERBLUE" layoutX="383.0" layoutY="143.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-      <Rectangle fx:id="ground" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="358.0" layoutY="196.0" stroke="BLACK" strokeType="INSIDE" width="50" />
-      <Rectangle fx:id="ground1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="438.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="50" />
-      <Rectangle fx:id="ground3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="274.0" layoutY="196.0" stroke="BLACK" strokeType="INSIDE" width="50" />
-      <Polygon fx:id="star" fill="DODGERBLUE" layoutX="457.0" layoutY="199.0" points="-19.0, 40.0, 23.0, 40.0, -1.0, 3.0" stroke="BLACK" strokeType="INSIDE" />
-      <Rectangle fx:id="ground4" arcHeight="5.0" arcWidth="5.0" fill="#ff4a1f" height="50.0" layoutX="118.0" layoutY="316.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
-      <Rectangle fx:id="ground5" arcHeight="5.0" arcWidth="5.0" height="50.0" layoutX="201.0" layoutY="196.0" stroke="BLACK" strokeType="INSIDE" width="50.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
+      <Circle fx:id="ball" fill="DODGERBLUE" layoutX="301.0" layoutY="147.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+      <Group fx:id="blocks">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="216.0" layoutY="229.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="344.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="266.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+         </children>
+      </Group>
+      <Group fx:id="obstacles">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f20" height="50" layoutX="166.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+         </children>
+      </Group>
+      <Group fx:id="stars">
+         <children>
+            <Polygon fill="YELLOW" layoutX="371.0" layoutY="220.0" stroke="BLACK" strokeType="INSIDE">
+                     <points>
+                        <Double fx:value="0.0" />
+                        <Double fx:value="-15.0" />
+                        <Double fx:value="3.4" />
+                        <Double fx:value="-4.6" />
+                        <Double fx:value="14.3" />
+                        <Double fx:value="-4.6" />
+                        <Double fx:value="5.4" />
+                        <Double fx:value="1.8" />
+                        <Double fx:value="8.8" />
+                        <Double fx:value="12.1" />
+                        <Double fx:value="0.0" />
+                        <Double fx:value="5.7" />
+                        <Double fx:value="-8.8" />
+                        <Double fx:value="12.1" />
+                        <Double fx:value="-5.4" />
+                        <Double fx:value="1.8" />
+                        <Double fx:value="-14.3" />
+                        <Double fx:value="-4.6" />
+                        <Double fx:value="-3.4" />
+                        <Double fx:value="-4.6" />
+                     </points>
+                  </Polygon>
+            <Polygon fill="YELLOW" layoutX="370.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-15.0" />
+                  <Double fx:value="3.4" />
+                  <Double fx:value="-4.6" />
+                  <Double fx:value="14.3" />
+                  <Double fx:value="-4.6" />
+                  <Double fx:value="5.4" />
+                  <Double fx:value="1.8" />
+                  <Double fx:value="8.8" />
+                  <Double fx:value="12.1" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="5.7" />
+                  <Double fx:value="-8.8" />
+                  <Double fx:value="12.1" />
+                  <Double fx:value="-5.4" />
+                  <Double fx:value="1.8" />
+                  <Double fx:value="-14.3" />
+                  <Double fx:value="-4.6" />
+                  <Double fx:value="-3.4" />
+                  <Double fx:value="-4.6" />
+               </points>
+            </Polygon>
+         </children>
+      </Group>
    </children>
 </Pane>

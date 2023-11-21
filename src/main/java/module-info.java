@@ -4,6 +4,7 @@ module com.itooth {
     requires javafx.fxml;
     
     opens com.itooth.controller to javafx.fxml;
+    opens com.itooth.cls.abstractcls to javafx.fxml;
     opens com.itooth to javafx.fxml;
 
     exports com.itooth;
