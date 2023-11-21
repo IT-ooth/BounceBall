@@ -10,7 +10,7 @@ public class Obstacle extends Block{
 
     @Override
     public void update() {
-        if (isCrashto(getBounds(node))) {
+        if (isCrashto(getBounds(rectangle))) {
             gameover();
         }
     }

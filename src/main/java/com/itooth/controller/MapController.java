@@ -9,7 +9,6 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.fxml.FXML;
 
-
 import com.itooth.cls.Obstacle;
 import com.itooth.cls.Ball;
 import com.itooth.cls.Block;
