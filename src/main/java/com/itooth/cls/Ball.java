@@ -7,7 +7,7 @@ import javafx.scene.shape.Circle;
 public class Ball extends Object{
 
     private static double time = 0;
-    private static double initial_speed = 6;
+    private static double initial_speed = 4;
     private static Circle circle;
     private static double velocityX;
 
@@ -59,7 +59,7 @@ public class Ball extends Object{
                 time = 0;
                 break;
             case BOTTOM:
-                time = -initial_speed / acceleration + 0.2;
+                time =  - initial_speed / acceleration + 0.2;
                 break;
             case LEFT:
                 setPos(circle.getCenterX() - 1, circle.getCenterY());
