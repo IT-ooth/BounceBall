@@ -38,7 +38,7 @@ public class Sys{
     public void win(){
         //System.out.println("Stage Clear");
 
-        getInstance().nextMap = "map2";
+        getInstance().nextMap = "next";
         getInstance().closeThread();
 
         // try {App.setRoot("Map2");}
@@ -75,7 +75,7 @@ public class Sys{
     }
     // 공 초기화하기
     public void resetBall(){
-        getInstance().nextMap = "map";
+        getInstance().nextMap = "restart";
         getInstance().closeThread();
         //try {App.setRoot("Map");}
         //catch (IOException e){e.printStackTrace();}

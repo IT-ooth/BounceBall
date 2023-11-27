@@ -28,6 +28,9 @@ public class Map2Controller extends Controller{
     // 초기화
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        nextMap = "lastmap";
+        nowMap = "map2";
+
         setInitial(ball);
         Sys.getInstance().setInitial();
 

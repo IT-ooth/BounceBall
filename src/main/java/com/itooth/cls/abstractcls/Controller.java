@@ -16,6 +16,9 @@ public abstract class Controller extends Thread implements Initializable{
     protected static List<Object> sprites = new ArrayList<Object>();
     private static double[] initial_pos = new double[2];
 
+    public String nextMap;
+    public String nowMap;
+
     // 스프라이트 업데이트
     public void run(){
         while (Sys.getInstance().isFlag()){
@@ -37,13 +40,20 @@ public abstract class Controller extends Thread implements Initializable{
         catch (InterruptedException e){e.printStackTrace();}
 
         String nextMap = Sys.getInstance().nextMap;
-        System.out.println(nextMap);
-        if (nextMap != ""){
-            try {App.setRoot(nextMap);}
-            catch (IOException e){e.printStackTrace();}
+        System.out.println(this.nextMap);
+        switch(nextMap){
+            case "next":
+                try {App.setRoot(this.nextMap);}
+                catch (IOException e){e.printStackTrace();}
+                break;
+            case "restart":
+                try {App.setRoot(this.nowMap);}
+                catch (IOException e){e.printStackTrace();}
+                break;
+            default:
+                return;
         }
 
-        return;
     }
     
     // 공 오브젝트 가져오기

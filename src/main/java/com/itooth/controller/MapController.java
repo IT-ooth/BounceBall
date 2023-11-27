@@ -24,11 +24,17 @@ public class MapController extends Controller{
     @FXML private Group blocks;
     @FXML private Group obstacles;
 
+    // private String nextMap = "map2";
+    // private String nowMap = "map";
+
     // 초기화
     @Override
     public void initialize(URL location, ResourceBundle resources){
         setInitial(ball);
         Sys.getInstance().setInitial();
+
+        nextMap = "map2";
+        nowMap = "map";
 
         //ball 객체는 sprites에서 무조건 0번째 인덱스여야 함.
         sprites.add(new Ball(ball));
