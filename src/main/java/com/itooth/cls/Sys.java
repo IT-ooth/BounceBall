@@ -25,6 +25,12 @@ public class Sys{
     public void setObject(Ball ball, Group stars){
         this.ball = ball;
         starGroup = stars;
+        numOfstar = stars.getChildren().size();
+    }
+
+    public void setInitial(){
+        setFlag(true);
+        nextMap = "";
     }
     
     // ------- THREAD -------
@@ -32,7 +38,8 @@ public class Sys{
     public void win(){
         //System.out.println("Stage Clear");
 
-        //resetBall();
+        getInstance().nextMap = "map2";
+        getInstance().closeThread();
 
         // try {App.setRoot("Map2");}
         // catch (IOException e){e.printStackTrace();}
@@ -70,8 +77,8 @@ public class Sys{
     public void resetBall(){
         getInstance().nextMap = "map";
         getInstance().closeThread();
-        // try {App.setRoot("Map");}
-        // catch (IOException e){e.printStackTrace();}
+        //try {App.setRoot("Map");}
+        //catch (IOException e){e.printStackTrace();}
         //getBall().resetBall(MapController.getInitial());
     }
 

@@ -2,9 +2,11 @@ package com.itooth.cls.abstractcls;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 
 import com.itooth.cls.Ball;
 import com.itooth.cls.Sys;
+import com.itooth.App;
 
 import javafx.fxml.Initializable;
 import javafx.scene.shape.Circle;
@@ -25,11 +27,23 @@ public abstract class Controller extends Thread implements Initializable{
                 obj.update();
             }
         }
+        
+        sprites.clear();
+        Sys.getInstance().setFlag(true);
 
         this.interrupt();
 
         try {Thread.sleep(1L);}
         catch (InterruptedException e){e.printStackTrace();}
+
+        String nextMap = Sys.getInstance().nextMap;
+        System.out.println(nextMap);
+        if (nextMap != ""){
+            try {App.setRoot(nextMap);}
+            catch (IOException e){e.printStackTrace();}
+        }
+
+        return;
     }
     
     // 공 오브젝트 가져오기
