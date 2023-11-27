@@ -24,13 +24,12 @@ public class Map2Controller extends Controller{
     @FXML private Group stars;
     @FXML private Group blocks;
     @FXML private Group obstacles;
-    @FXML private Polygon star1;
-    @FXML private Polygon star2;
 
     // 초기화
     @Override
     public void initialize(URL location, ResourceBundle resources){
         setInitial(ball);
+        Sys.getInstance().setInitial();
 
         //ball 객체는 sprites에서 무조건 0번째 인덱스여야 함.
         sprites.add(new Ball(ball));
