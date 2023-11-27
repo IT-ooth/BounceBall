@@ -20,9 +20,12 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="366.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="466.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="416.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="550.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="116.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="66.0" layoutY="179.0" stroke="BLACK" strokeType="INSIDE" width="50" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50" layoutX="16.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="50" />
          </children>
       </Group>
-      <Group />
       <Group fx:id="obstacles">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f20" height="50" layoutX="166.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE" width="50" />
