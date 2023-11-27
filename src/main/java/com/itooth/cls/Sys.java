@@ -1,11 +1,5 @@
 package com.itooth.cls;
 
-import com.itooth.controller.MapController;
-
-import java.io.IOException;
-
-import com.itooth.App;
-
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -15,8 +9,11 @@ public class Sys{
     
     private static Sys instance = new Sys();
     private boolean flag = true;
-    private int NumOfstar = 0;
+    private int numOfstar = 0;
     public Group starGroup;
+    public String nextMap = "";
+    //public List<Object> sprites = new ArrayList<Object>();
+    public Ball ball;
 
     private Sys(){}
 
@@ -24,14 +21,22 @@ public class Sys{
     public static Sys getInstance(){
         return instance;
     }
+
+    public void setObject(Ball ball, Group stars){
+        this.ball = ball;
+        starGroup = stars;
+    }
     
     // ------- THREAD -------
     // 별 다먹었을 때 쓰는 함수
     public void win(){
         //System.out.println("Stage Clear");
-        resetBall();
-        try {App.setRoot("Map2");}
-        catch (IOException e){e.printStackTrace();}
+
+        //resetBall();
+
+        // try {App.setRoot("Map2");}
+        // catch (IOException e){e.printStackTrace();}
+
         //closeThread();
     }
     
@@ -42,6 +47,9 @@ public class Sys{
     // 
     public boolean isFlag(){
         return flag;
+    }
+    public void setFlag(boolean flag){
+        this.flag = flag;
     }
 
     // ------- ball -------
@@ -55,28 +63,27 @@ public class Sys{
     }
     // 공 가져오기
     private Ball getBall(){
-        return MapController.getBall();
+        return ball;
+        //return MapController.getBall();
     }
     // 공 초기화하기
     public void resetBall(){
-        try {App.setRoot("Map");}
-        catch (IOException e){e.printStackTrace();}
-        getBall().resetBall(MapController.getInitial());
+        getInstance().nextMap = "map";
+        getInstance().closeThread();
+        // try {App.setRoot("Map");}
+        // catch (IOException e){e.printStackTrace();}
+        //getBall().resetBall(MapController.getInitial());
     }
 
     // ------- star -------
-    public void setStarGroup(Group group){
-        this.starGroup = group;
-        NumOfstar = starGroup.getChildren().size();
-    }
     // 공과 충돌한 별 지우기
     public void reduceStar(Node node){
 
         // 원래 javafx에서 작업 스레드는 UI 변경 못해서 Platform.runLater() 함수로 별의 Polygon UI를 삭제함
         Platform.runLater(() -> {starGroup.getChildren().remove(node);});
-        NumOfstar -= 1;
+        numOfstar -= 1;
 
-        if (NumOfstar <= 0){
+        if (numOfstar <= 0){
             win();
         }
         else{

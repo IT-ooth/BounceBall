@@ -35,8 +35,7 @@ public class Map2Controller extends Controller{
         //ball 객체는 sprites에서 무조건 0번째 인덱스여야 함.
         sprites.add(new Ball(ball));
 
-        //star 객체 초기화
-        Sys.getInstance().setStarGroup(stars);
+        //객체 초기화
         for (Node star: stars.getChildren()) {
             sprites.add(new Star((Polygon)star));
         }
@@ -48,6 +47,9 @@ public class Map2Controller extends Controller{
         for (Node obs: obstacles.getChildren()){
             sprites.add(new Obstacle(obs));
         }
+
+        //ball과 star 객체를 Sys로 넘김
+        Sys.getInstance().setObject(getBall(), stars);
 
         this.start();
     }
