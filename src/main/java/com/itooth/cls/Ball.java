@@ -43,6 +43,10 @@ public class Ball extends Object{
             circle.getCenterX() - velocityX,
             circle.getCenterY() - calPosY(time)
             );
+
+        if (isOutOfMap(circle.getLayoutX()+circle.getCenterX(), circle.getLayoutY()+circle.getCenterY())){
+            Sys.getInstance().resetBall();
+        }
     }
     // 틱마다 최신화 할 것들 모음
     private void configUpdate(){ 
@@ -82,6 +86,14 @@ public class Ball extends Object{
     public void resetBall(double[] initial_pos) {
         time = 0;
         setPos(initial_pos[0], initial_pos[1]);
+    }
+
+    // 공이 맵을 벗어낫는지 판정
+    private boolean isOutOfMap(double x, double y){
+        // 맵 크기가 600 * 400으로 고정되어있다는 가정으로 만듦
+        // 맵 크기가 바뀌면 수정해야 함
+        System.out.println(x + " " + y + " ");
+        return (x> 600 || x < 0 || y> 400 || y< 0);
     }
 
     public Bounds getBounds(){
